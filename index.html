@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drawing Shapes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+  <body>
+    <div class="row">
+      <h1 style="text-align: center; font-family: Garamond, serif; font-size: 4 0px; background-color: bisque;"><b>Drawing Shapes On Canvas</b></h1>
+      <div class="form-group row">
+        <div class="col md-4">
+          <span class="input-group-text" id="" style="width: 30%;"><b>Shapes:</b> </span>
+          <select id="shape" name="shape" class="form-control" style="font-size: 15px; width: 30%;">
+            <option value="Sphere">Sphere</option>
+            <option value="Plane">Plane</option>
+            <option value="Cube">Cube</option>
+            <option value="Quad">Quad</option>
+            <option value="Cone">Cone</option>
+            <option value="Disk">Disk</option>
+          </select> 
+        </div>
+        
+        <!-- // Position -->
+        <div class="col md-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="" style="width: 30%;"><b>Position:</b> </span>
+          </div>
+          <div class="form-group">
+            <label for="Tx">Translate X:</label>
+            <input type="range" min="-100" max="100" value="0" class="slider slider-pos-1" id="Tx">
+            <p style="display: inline; margin-left: 1%;">Q W
+            </p>           
+          </div>
+          
+          <div class="form-group">
+            <label for="Ty">Translate Y:</label>
+            <input type="range" min="-100" max="100" value="0" class="slider slider-pos-1" id="Ty">
+            <p style="display: inline; margin-left: 1%;">A S
+            </p>
+          </div>
+          <div class="form-group">
+            <label for="Tz">Translate Z:</label>
+            <input type="range" min="-100" max="100" value="0" class="slider slider-pos-1" id="Tz">
+            <p style="display: inline; margin-left: 1%;">Z X
+            </p>
+          </div>
+        </div>
+
+        <!-- // Scaling -->
+        <div class="col md-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="" style="width: 30%;"><b>Scaling:</b> </span>
+          </div>
+          <div>
+            <label for="Sx">Scale X:</label>
+            <input type="range" min="1" max="100" value="20" class="slider slider-pos-2" id="Sx">
+            <p style="display: inline; margin-left: 1%;">Y U
+            </p>
+          </div>
+          <div class="form-group">
+            <label for="Sy">Scale Y:</label>
+            <input type="range" min="1" max="100" value="25" class="slider slider-pos-2" id="Sy">
+            <p style="display: inline; margin-left: 1%;">H J
+            </p>
+          </div>
+          <div class="form-group">
+            <label for="Sz">Scale Z:</label>
+            <input type="range" min="1" max="100" value="20" class="slider slider-pos-2" id="Sz">
+            <p style="display: inline; margin-left: 1%;">N M
+            </p>
+          </div>
+        </div>
+
+        <!-- // Rotation -->
+        <div class="col md-4">
+          <span class="input-group-text" id="" style="width: 50%;"><b>Rotation (Degrees):</b> </span>
+          <div class="col-sm-2">
+              <input type="text" class="form-control" id="Rz" value="0.0">
+          </div>
+        </div>
+
+      </div>
+      <div class="col-sm-4" style="padding-top: 2%; padding-left: 2%">                  
+        <div class="form-group">
+          <button type="button" class="btn btn-outline-danger" id="add_button">ADD</button>
+          <button type="button" class="btn btn-outline-danger" id="remove_button">REMOVE</button>
+          <button type="button" class="btn btn-outline-danger" id="clear">CLEAR</button>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="exampleFormControlSelect2"><b>List of Shapes:</b></label>
+          <select multiple class="form-control" id="GameObjects"size="10" onchange="SaveSelection()"></select>
+        </div>
+        <br>
+
+        <div class="col-md">
+          <label for="colorControl">Color:</label>
+          <input type="color" id="colorControl" onchange="clickColor(0, -1, -1, 5)" value="#000000" 
+            style="width:5%; display: -ms-flexbox; margin-left: 7px;">
+        </div>      
+      </div>
+
+      <div class="col-md" style="padding-top: 2%">
+        <canvas id="webgl" width="800" , height="600"></canvas>
+      </div>
+    </div>    
+
+    <script src="./lib/webgl-utils.js"></script>
+    <script src="./lib/webgl-debug.js"></script>
+    <script src="./lib/cuon-utils.js"></script>
+    <script src="./lib/cuon-matrix.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
